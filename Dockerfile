@@ -4,7 +4,7 @@
 
 # Base image
 # ---------------------------------------------------------------------- #
-FROM ubuntu:20.10
+FROM ubuntu:18.04
 
 # Author
 # ---------------------------------------------------------------------- #
@@ -27,8 +27,9 @@ RUN chmod +x /tmp/vncpass.sh && /tmp/vncpass.sh
 # Add startup behaviour
 # RUN mkdir ~/.vnc
 #RUN ls -l
-# ADD xstartup /root/.vnc/
-# RUN chmod +x /root/.vnc/xstartup
+RUN touch /root/.Xresources && touch /root/.Xauthority
+ADD xstartup /root/.vnc/
+RUN chmod +x /root/.vnc/xstartup
 
 # RUN vncserver
 
