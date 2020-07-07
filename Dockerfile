@@ -25,8 +25,6 @@ ADD vncpass.sh /tmp/
 RUN chmod +x /tmp/vncpass.sh && /tmp/vncpass.sh
 
 # Add startup behaviour
-# RUN mkdir ~/.vnc
-#RUN ls -l
 RUN touch /root/.Xresources && touch /root/.Xauthority
 ADD xstartup /root/.vnc/
 RUN chmod +x /root/.vnc/xstartup
